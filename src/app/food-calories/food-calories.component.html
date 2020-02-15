@@ -1,0 +1,25 @@
+<div class="row mx-auto t-3 divcenter">
+    <div class="col-xs-12 col-sm-10 col-md-6 col-md-offset-2 col-sm-offset-1 text-center">
+        <div class="form-group">
+            <label for="username">Enter Recipe</label>
+            <input type="text" #recipe class="form-control" id="recipe">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" (click)="getCalories(recipe.value)">Submit</button>
+        </div>
+    </div>
+    
+    <div class="col-xs-12 col-sm-10 col-md-8 col-md-offset-2 col-sm-offset-1 bg-blur text-center" *ngIf="this.apiData">
+        <div>
+            <p>Serving Weight in Grams : </p><p> {{this.apiData.hits[0].fields.nf_serving_weight_grams}}</p>
+        </div>
+    
+        <div>
+            <p>Calories : </p><p> {{this.apiData.hits[0].fields.nf_calories}}</p>
+        </div>
+    
+        <div>
+            <p>Proteins : </p><p> {{this.apiData.hits[0].fields.nf_protein}}</p>
+        </div>
+    </div>
+</div>

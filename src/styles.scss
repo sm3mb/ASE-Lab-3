@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+
+.divcenter {
+    place-content: center;
+}
+
+.bg-blur {
+    background-color: rgba(0,0,0, 0.4);
+    font-weight: bold;
+    border: 1px thin #f1f1f1;
+    position: relative;
+    padding: 5px;
+}

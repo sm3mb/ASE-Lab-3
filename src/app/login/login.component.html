@@ -1,0 +1,39 @@
+<div>
+  <div class="text-center">
+    <h2>Login</h2>
+  </div>
+  <div class="row divcenter font-weight-bold">
+    <div class="col-xs-12 col-sm-10 col-md-4">
+      <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+        
+        <div class="form-group">
+          <label for="username">UserName</label>
+          <input type="text" class="form-control" id="username" formControlName="username">
+          <div *ngIf="check && f.username?.errors" class="alert alert-warning center-form-group" role="alert">
+            <div>UserName is required</div>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" formControlName="password">
+          <div *ngIf="check && f.password?.errors" class="alert alert-warning center-form-group" role="alert">
+            <div *ngIf="f.password?.errors.required">Password is required</div>
+              <div *ngIf="f.password?.errors.minlength">Password must be at least 6 characters</div>
+          </div>
+        </div>
+        <div class="text-center">
+          <button class="btn btn-primary" type="submit">Login</button>
+        </div>
+        <div class="font-weight-bold">
+          <div *ngIf="inValidUser" class="alert alert-warning center-form-group" role="alert">
+            <div>Invalid Credentials</div>
+          </div>
+          <div *ngIf="noUserFound" class="alert alert-warning center-form-group" role="alert">
+            <div>No User Found</div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

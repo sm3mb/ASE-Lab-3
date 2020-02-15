@@ -1,0 +1,59 @@
+<div>
+  <div class="text-center">
+    <h2>Register</h2>
+  </div>
+  <div class="row divcenter">
+    <div class="col-xs-12 col-sm-10 col-md-6 col-md-offset-2 col-sm-offset-1 bg-blur">
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="firstname">First Name</label>
+          <input type="text" class="form-control" id="firstname" formControlName="firstname">
+          <div *ngIf="check && f.firstname?.errors" class="alert alert-warning center-form-group" role="alert">
+            <div>First Name is required</div>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="lastname">Last Name</label>
+          <input type="text" class="form-control" id="lastname" formControlName="lastname">
+          <div *ngIf="check && f.lastName?.errors" class="alert alert-warning center-form-group" role="alert">
+            <div>Last Name is required</div>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" formControlName="email">
+          <div *ngIf="check && f.email?.errors" class="alert alert-warning center-form-group" role="alert">
+            <div *ngIf="f.email?.errors.required">Email is required</div>
+            <div *ngIf="f.email?.errors.email">Email must be a valid email address</div>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="username">UserName</label>
+          <input type="text" class="form-control" id="username" formControlName="username">
+          <div *ngIf="check && f.username?.errors" class="alert alert-warning center-form-group" role="alert">
+            <div>UserName is required</div>
+          </div>
+        </div>
+        <div *ngIf="userCheck" class="alert alert-warning center-form-group" role="alert">
+          <div>UserName already exist</div>
+        </div>
+  
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" formControlName="password">
+          <div *ngIf="check && f.password?.errors" class="alert alert-warning center-form-group" role="alert">
+            <div *ngIf="f.password?.errors.required">Password is required</div>
+            <div *ngIf="f.password?.errors.minlength">Password must be at least 6 characters</div>
+          </div>
+        </div>
+        <div class="float-right">
+          <button class="btn btn-primary" type="submit">Submit</button>&nbsp;
+          <button class="btn btn-secondary" type="button" (click)="resetForm()">Reset</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
